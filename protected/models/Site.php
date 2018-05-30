@@ -31,7 +31,7 @@ class Site extends CActiveRecord
 		return array(
 			array('name, logo, link, item_id', 'required'),
 			array('sort', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>32),
+			array('name', 'length', 'max'=>128),
 			array('logo, link', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
