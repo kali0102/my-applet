@@ -32,8 +32,8 @@
         $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/manage')),
-				array('label'=>'项目', 'url'=>array('/manage/item')),
-				array('label'=>'网站', 'url'=>array('/manage/site')),
+				array('label'=>'项目', 'url'=>array('/manage/item/admin')),
+				array('label'=>'网站', 'url'=>array('/manage/site/admin')),
 //				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 //				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

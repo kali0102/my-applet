@@ -6,7 +6,7 @@ class HomeController extends Controller
     {
         $criteria = new CDbCriteria;
         $criteria->order = 'id ASC';
-        $items = Item::model()->findAll($criteria);
+        $items = Item::model()->with('siteCount')->findAll($criteria);
 
         $this->render('index', ['items' => $items]);
     }

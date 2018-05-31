@@ -14,19 +14,19 @@ $this->pageTitle = Yii::app()->name;
         <?php $count = count($items); ?>
         <?php foreach ($items as $item): ?>
 
-            <?php if ($i == 0 || $i % 6 == 0): ?>
+            <?php if ($i == 0 || $i % 5 == 0): ?>
                 <tr>
             <?php endif; ?>
 
             <td>
                 <h1>
                     <a href="<?= $this->createUrl('/item/view', ['id' => $item->id]) ?>">
-                        <?= $item->name ?>
+                        <?= $item->name ?> <span style="font-size: 16px">(<?= $item->siteCount ?>)</span>
                     </a>
                 </h1>
             </td>
 
-            <?php if ($i > 0 && ($i == $count || $i % 5 == 0)): ?>
+            <?php if ($i > 0 && ($i == $count || $i % 4 == 0)): ?>
                 </tr>
             <?php endif; ?>
 
