@@ -6,18 +6,14 @@ $this->pageTitle = Yii::app()->name;
 
 
 <table>
-
-
     <?php if (!empty($items)): ?>
-        <?php $i = 0; ?>
-
+        <?php $i = 1; ?>
         <?php $count = count($items); ?>
         <?php foreach ($items as $item): ?>
 
-            <?php if ($i == 0 || $i % 5 == 0): ?>
+            <?php if ($i == 1): ?>
                 <tr>
             <?php endif; ?>
-
             <td>
                 <h1>
                     <a href="<?= $this->createUrl('/item/view', ['id' => $item->id]) ?>">
@@ -25,16 +21,16 @@ $this->pageTitle = Yii::app()->name;
                     </a>
                 </h1>
             </td>
+            <?php if ($i % 5 == 0): ?>
+                </tr>
+                <tr>
+            <?php endif; ?>
 
-            <?php if ($i > 0 && ($i == $count || $i % 4 == 0)): ?>
+            <?php if ($i == $count): ?>
                 </tr>
             <?php endif; ?>
 
             <?php $i++; ?>
         <?php endforeach; ?>
-
-
     <?php endif; ?>
-
-
 </table>

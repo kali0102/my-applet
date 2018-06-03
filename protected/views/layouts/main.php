@@ -52,9 +52,10 @@
 	<div class="clear"></div>
 
 	<div id="footer">
+        Powered by <a href="http://www.applet.cn/" rel="external">Kyrie.liu</a>
 <!--		Copyright &copy; --><?php ////echo date('Y'); ?><!-- by My Company.<br/>-->
 <!--		All Rights Reserved.<br/>-->
-		<?php echo Yii::powered(); ?>
+		<?php //echo Yii::powered(); ?>
 	</div><!-- footer -->
 
 </div><!-- page -->

@@ -1,23 +1,43 @@
 <?php
-/**
- * Controller is the customized base controller class.
- * All controller classes for this application should extend from this base class.
- */
+
 class Controller extends CController
 {
-	/**
-	 * @var string the default layout for the controller view. Defaults to '//layouts/column1',
-	 * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
-	 */
-	public $layout='//layouts/column1';
-	/**
-	 * @var array context menu items. This property will be assigned to {@link CMenu::items}.
-	 */
-	public $menu=array();
-	/**
-	 * @var array the breadcrumbs of the current page. The value of this property will
-	 * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}
-	 * for more details on how to specify this property.
-	 */
-	public $breadcrumbs=array();
+
+    public $layout = '//layouts/column1';
+
+    public $menu = array();
+
+    public $breadcrumbs = array();
+
+    /**
+     * 通用单模型查询实例
+     * @param int $id
+     * @throws CHttpException
+     * @return CModel
+     */
+    public function loadModel($id)
+    {
+        $model = null;
+        $object = ucfirst($this->id);
+        $object = '$model=' . $object . '::model()->findByPk((int)' . $id . ');';
+        eval($object);
+        if ($model === null)
+            throw new CHttpException(404, '请求的页面不存在！');
+        return $model;
+    }
+
+    /**
+     * 通用AJAX表单验证
+     * @param array CModel $model
+     * @param string $formId
+     * @return void
+     */
+    public function performAjaxValidation($model, $formId = null, $attributes = null, $loadInput = true)
+    {
+        $formId = isset($formId) ? $formId : $this->id;
+        if (isset($_POST['ajax']) && $_POST['ajax'] === $formId . '-form') {
+            CActiveForm::validate($model, $attributes, $loadInput);
+            Yii::app()->end();
+        }
+    }
 }

@@ -2,20 +2,18 @@
 /* @var $this ItemController */
 /* @var $model Item */
 
-$this->breadcrumbs=array(
-	'Items'=>array('index'),
-	$model->name=>array('view','id'=>$model->id),
-	'Update',
+$this->breadcrumbs = array(
+    '书签' => array('index'),
+    $model->name => array('view', 'id' => $model->id),
+    '编辑',
 );
 
-$this->menu=array(
-	array('label'=>'List Item', 'url'=>array('index')),
-	array('label'=>'Create Item', 'url'=>array('create')),
-	array('label'=>'View Item', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Item', 'url'=>array('admin')),
+$this->menu = array(
+    array('label' => '书签管理', 'url' => array('index')),
+    array('label' => '书签新增', 'url' => array('create')),
 );
 ?>
 
-<h1>Update Item <?php echo $model->id; ?></h1>
+    <h1>书签编辑 <?php echo $model->name; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model' => $model)); ?>

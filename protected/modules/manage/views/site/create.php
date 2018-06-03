@@ -2,17 +2,16 @@
 /* @var $this SiteController */
 /* @var $model Site */
 
-$this->breadcrumbs=array(
-	'Sites'=>array('index'),
-	'Create',
+$this->breadcrumbs = array(
+    '网站' => array('index'),
+    '新增',
 );
 
-$this->menu=array(
-	array('label'=>'List Site', 'url'=>array('index')),
-	array('label'=>'Manage Site', 'url'=>array('admin')),
+$this->menu = array(
+    array('label' => '网站管理', 'url' => array('index')),
 );
 ?>
 
-<h1>Create Site</h1>
+    <h1>网站新增</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model' => $model)); ?>

@@ -12,7 +12,6 @@ return array(
     // preloading 'log' component
     'preload' => array('log'),
 
-    'defaultController' => 'home',
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -21,6 +20,9 @@ return array(
 
     'modules' => array(
         'manage',
+        'bm' => ['class' => 'application.modules.bookmark.BookmarkModule'],
+        'password',
+        'blog',
         // uncomment the following to enable the Gii tool
         'gii' => array(
             'class' => 'system.gii.GiiModule',
@@ -44,10 +46,18 @@ return array(
             'urlFormat' => 'path',
             'showScriptName' => false,
             'rules' => array(
-                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+//                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+//                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+//                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+
+                'http://<_m:(blog|bm)>.applet.cn<_q:.*>/*' => ['<_m><_q>', 'urlSuffix' => ''],
+                '<c:\w+>/<id:\d+>' => '<c>/view',
+                '<c:\w+>/<a:\w+>/<id:\d+>' => '<c>/<a>',
+                '<c:\w+>/<a:\w+>' => '<c>/<a>',
+
             ),
+
+            'baseUrl' => 'http://www.applet.cn'
         ),
 
 

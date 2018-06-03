@@ -85,6 +85,7 @@ class Site extends CActiveRecord
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id, true);
+        $criteria->compare('item_id', $this->item_id, true);
         $criteria->compare('name', $this->name, true);
         $criteria->compare('logo', $this->logo, true);
         $criteria->compare('link', $this->link, true);
@@ -92,11 +93,12 @@ class Site extends CActiveRecord
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
-            'sort' => [
-                'defaultOrder' => [
-                    'id' => SORT_DESC,
-                ]
-            ],
+            'sort' => array(
+                'defaultOrder' => 'id DESC',
+            ),
+            'pagination' => array(
+                'pageSize' => 12,
+            ),
         ));
     }
 

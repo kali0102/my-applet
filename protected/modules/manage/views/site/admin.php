@@ -8,8 +8,8 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => 'List Site', 'url' => array('index')),
-    array('label' => 'Create Site', 'url' => array('create')),
+    array('label' => '网站列表', 'url' => array('index')),
+    array('label' => '添加网站', 'url' => array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
